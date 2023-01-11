@@ -87,8 +87,8 @@ deleteMovie = async (req, res) => {
     }).catch(err => console.log(err))
 }
 
-getMovieById = async (req, res) => {
-    await Movie.findOne({ _id: req.params.id }, (err, movie) => {
+getMovieByName = async (req, res) => {
+    await Movie.findOne({ name: req.params.name }, (err, movie) => {
         if (err) {
             return res.status(400).json({ success: false, error: err })
         }
@@ -116,5 +116,5 @@ module.exports = {
     updateMovie,
     deleteMovie,
     getMovies,
-    getMovieById,
+    getMovieByName,
 }
